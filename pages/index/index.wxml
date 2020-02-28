@@ -30,4 +30,25 @@
       </navigator>
     </block>
   </view>
+  <!-- 楼层 -->
+  <view class="floor" wx:for="{{floors}}" wx:key="index">
+    <!-- 楼层头部 -->
+    <image
+    class="floor-header"
+    mode="widthFix" src="{{item.floor_title.image_src}}"></image>
+    <!-- 楼层内容 -->
+    <view class="floor-content">
+      <!-- 左边 -->
+     <view class="content-left">
+       <image mode="aspectFill" src="{{item.product_list[0].image_src}}"></image>
+     </view>
+      <!-- 右边-->
+      <view class="content-right">
+      <block wx:for="{{item.product_list}}" wx:key="index"
+       wx:if="{{index > 0}}">
+        <image mode="aspectFill" src="{{item.image_src}}"></image>
+      </block>
+      </view>
+    </view>
+  </view>
 </view>

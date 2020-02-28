@@ -32,3 +32,38 @@
   width:128rpx;
   height: 128rpx;
 }
+.floor{
+   margin-bottom: 20px;
+}
+.floor-header{
+  width: 100%;
+  height: 87rpx;
+}
+.floor-content{
+  display: flex;
+  justify-content: space-between;
+  padding:15rpx;
+}
+.content-left{
+  margin-right: 12rpx;
+}
+.content-left image{
+  width:232rpx;
+  height:386rpx;
+}
+.content-right{
+  flex:1;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.content-right image{
+   width: 233rpx;
+   height: 188rpx;
+}
+.floor + .floor .content-right image{
+    width: 193rpx;
+}
+.floor + .floor .content-right image:nth-child(3n + 1){
+    width: 273rpx;
+}

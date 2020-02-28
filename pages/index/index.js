@@ -5,7 +5,9 @@ Page({
   //  轮播图数据
   banners:[],
   //菜单数据
-  menu:[]
+  menu:[],
+  // 楼层的数据
+  floors: [],
  },
  onLoad(){
   //  请求轮播图接口
@@ -34,6 +36,16 @@ Page({
     })
     this.setData({
       menu: newData
+    })
+  }),
+  //请求楼层数据
+  request({
+    url:'/home/floordata'
+  }).then(res=>{
+    const {message} = res.data;
+    // 赋值给楼层
+    this.setData({
+      floors:message
     })
   })
  }
