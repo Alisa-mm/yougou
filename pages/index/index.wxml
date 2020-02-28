@@ -51,4 +51,13 @@
       </view>
     </view>
   </view>
+  <!-- 底部 -->
+  <view class="footer">
+    <text class="footer-text">我是有底线的~</text>
+  </view>
+  <!-- 回到顶部 -->
+  <view class="toTop" bindtap="handleToTop" wx:if="{{isShowTop}}">
+    <view class="arrow"></view>
+    <text>顶部</text>
+  </view>
 </view>

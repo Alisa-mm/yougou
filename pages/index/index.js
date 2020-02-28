@@ -8,6 +8,8 @@ Page({
   menu:[],
   // 楼层的数据
   floors: [],
+  //是否显示回到顶部
+  isShowTop: false
  },
  onLoad(){
   //  请求轮播图接口
@@ -48,5 +50,31 @@ Page({
       floors:message
     })
   })
- }
+ },
+ //回到顶部事件
+ handleToTop(){
+   wx.pageScrollTo({
+     scrollTop: 0,
+     duration: 300
+   })
+ },
+ //监听页面滚动事件(页面滑到下面再显示回到顶部)
+  onPageScroll(e){
+    // console.log(e)
+    const {scrollTop} = e;
+    // 当前的状态
+    let isShow = this.data.isShowTop;
+    // 大于100就显示回到顶部
+    if(scrollTop>200){
+      isShow=true
+    } else {
+      isShow = false
+    }
+    // 避免频繁的操作setData，所以如果下面两个值是相同就没必要再赋值了
+    if(isShow===this.data.isShowTop) return;
+    // 赋值
+    this.setData({
+      isShowTop: isShow
+    })
+  }  
 })
