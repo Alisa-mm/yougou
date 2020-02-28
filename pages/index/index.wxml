@@ -22,5 +22,12 @@
      </navigator>
     </swiper-item>
   </swiper>
-
+  <!-- 分类 -->
+  <view class="menu">
+    <block wx:for="{{menu}}" wx:key="index">
+      <navigator url="{{item.url}}" open-type="switchTab">
+        <image src="{{item.image_src}}" mode="widthFix"></image>
+      </navigator>
+    </block>
+  </view>
 </view>

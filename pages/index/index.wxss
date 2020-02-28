@@ -1,5 +1,5 @@
 .search{
-  padding: 20px;
+  padding: 20rpx;
   background:#ff2d4a;
 }
 .search .search-input{
@@ -21,4 +21,14 @@
 .swiper image{
   width: 750rpx;
   height: 340rpx;
+}
+.menu{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding:20rpx 0;
+}
+.menu image{
+  width:128rpx;
+  height: 128rpx;
 }
