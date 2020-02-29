@@ -1,2 +1,37 @@
-<!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<view class="container">
+  <!--引入搜索组件 -->
+  <search/>
+  <!-- 主体内容 -->
+  <view class="main">
+    <!-- 侧边栏菜单 -->
+    <view class="asideMenu">
+      <!-- 菜单子选项 -->
+      <block wx:for="{{list}}" wx:key="index">
+        <view class="menu-item {{current===index? 'active':''}}" bindtap="handeleClick" data-index="{{index}}">{{item.cat_name}}
+        </view>
+      </block>
+    </view>
+    <!-- 右边商品分类 -->
+    <view class="product">
+      <!-- 子分类 -->
+      <block wx:for="{{list[current].children}}" wx:key="index">
+        <view class="category-list">
+          <!-- 标题 -->
+          <view class="product-title">/
+            <text>{{item.cat_name}}</text> /</view>
+          <view class="product-list">
+            <!-- 品牌分类列表 -->
+            <block wx:for="{{item.children}}" wx:key="index">
+              <navigator url="">
+                <image mode="aspectFill" src="{{item.cat_icon}}"></image>
+                <view>{{item.cat_name}}</view>
+              </navigator>
+              
+            </block>
+          </view>
+        </view>
+      </block>
+
+    </view>
+  </view>
+</view>

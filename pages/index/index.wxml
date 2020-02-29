@@ -1,13 +1,8 @@
 <!--index.wxml-->
 <view class="container">
   <!-- 头部搜索栏 点击这个会跳转到搜索页面 -->
-  <navigator url="">
-    <view class="search">
-      <view class="search-input">
-      <icon type="search" size="20" />
-      搜索</view>
-    </view>
-  </navigator>
+    <!-- 引用搜索组件 -->
+    <search/>
   <!-- 轮播图 -->
   <swiper class="swiper"
     indicator-dots
