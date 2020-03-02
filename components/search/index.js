@@ -4,7 +4,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    // 把关键字传过去
+    keyword:{
+      type:String,
+      value:"搜索"
+    }
   },
 
   /**

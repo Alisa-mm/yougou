@@ -1,15 +1,17 @@
 {
   "pages": [
+    "pages/search/index",
     "pages/category/index",
     "pages/index/index",
     "pages/cart/index",
     "pages/personal/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#ff2d4a",
     "navigationBarTitleText": "欢乐优购",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#000",

@@ -1,0 +1,29 @@
+<view class="container">
+  <!-- 引入搜索组件 -->
+  <search keyword="{{keyword}}"/>
+  <!-- tab栏 -->
+  <view class="tab">
+    <view wx:for="{{tab}}" wx:key="index">{{item}}
+    <text wx:if="{{index==2}}" class=" iconfont iconpaixu"></text>
+    </view>
+  </view>
+  <!-- 商品列表栏 -->
+  <block wx:for="{{goodList}}" wx:key="index">
+    <view class="product-list">
+      <!-- 左边图片 -->
+      <view class="photo">
+        <image mode="widthFix" src="{{item.goods_big_logo ? item.goods_big_logo :'http://image4.suning.cn/uimg/b2c/newcatentries/0000000000-000000000185518945_2_800x800.jpg'}}"></image>
+      </view>
+      <!-- 右边详细内容 -->
+      <view class="content">
+        <view class="title">{{item.goods_name}}</view>
+        <view class="price">{{item.goods_price}}</view>
+      </view>
+    </view>
+  </block>
+    <!-- 拖动到底部的提示 -->
+    <view class="load-more">
+        <text wx:if="{{more}}">加载中</text>
+        <text wx:if="{{!more}}">没有更多数据</text>
+    </view>
+</view>
