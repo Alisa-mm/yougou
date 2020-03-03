@@ -1,4 +1,4 @@
- <navigator url="">
+ <navigator url="/pages/search/index">
     <view class="search background">
       <view class="search-input {{align}}">
       <icon type="search" size="20" />
