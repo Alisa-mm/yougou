@@ -1,0 +1,37 @@
+<view class="container">
+    <!-- 顶部搜索框 -->
+    <view class="search-wrap">
+      <view class="search">
+        <!-- input输入框 -->
+        <view class="search-input">
+          <icon type="search" size="20px"></icon>
+          <input placeholder="请输入关键字" value="{{inputValue}}" 
+           bindinput="handleInput"
+           bindconfirm="handleEnter"
+           bindblur="handleBlur"></input>
+        </view>
+        <!-- 取消按钮 -->
+        <view class="cancel-button">取消</view>
+      </view>
+    </view>
+    <!-- 搜索建议的列表 -->
+    <view class="recommend" wx:if="{{recommend.length}}">
+      <navigator url="" wx:for="{{recommend}}"
+       wx:key="index" >{{item.goods_name}}
+      </navigator>
+    </view>
+    <!-- 历史搜索 -->
+    <view class="history-title">
+        <view class="title">历史搜索</view>
+        <icon type="clear" size="20" bindtap="handleClear">
+        </icon>
+    </view>
+    <!-- 历史搜索列表 -->
+    <view class="history-list">
+        <navigator class="history-item" wx:for="{{history}}"
+        wx:key="index"
+        url="/pages/searchList/index?keyword={{item}}">
+         {{item}}
+        </navigator>
+    </view>
+</view>
