@@ -1,6 +1,6 @@
 <view class="container">
   <!-- 引入搜索组件 -->
-  <search keyword="{{keyword}}"/>
+  <search keyword="{{keyword}}" background="search" align="left"/>
   <!-- tab栏 -->
   <view class="tab">
     <view wx:for="{{tab}}" wx:key="index">{{item}}

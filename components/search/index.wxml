@@ -1,6 +1,6 @@
  <navigator url="">
-    <view class="search">
-      <view class="search-input">
+    <view class="search background">
+      <view class="search-input {{align}}">
       <icon type="search" size="20" />
       {{keyword}}</view>
     </view>

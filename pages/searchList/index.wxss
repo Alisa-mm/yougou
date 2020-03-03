@@ -1,3 +1,7 @@
+/* 顶部搜索 */
+.search{
+    background: rgba(239, 239, 239)!important;
+}
 .tab{
   display: flex;
   justify-content: space-around;
