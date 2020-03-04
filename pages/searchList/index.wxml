@@ -9,7 +9,8 @@
   </view>
   <!-- 商品列表栏 -->
   <block wx:for="{{goodList}}" wx:key="index">
-    <view class="product-list">
+  <navigator url="/pages/goodsDetail/index?id={{item.goods_id}}">
+       <view class="product-list">
       <!-- 左边图片 -->
       <view class="photo">
         <image mode="widthFix" src="{{item.goods_big_logo ? item.goods_big_logo :'http://image4.suning.cn/uimg/b2c/newcatentries/0000000000-000000000185518945_2_800x800.jpg'}}"></image>
@@ -20,6 +21,7 @@
         <view class="price">{{item.goods_price}}</view>
       </view>
     </view>
+  </navigator>
   </block>
     <!-- 拖动到底部的提示 -->
     <view class="load-more">

@@ -73,12 +73,14 @@ Page({
           recommend: message,
           loading:false //请求完就关灯
         })
+         //判断一下inputValue的值是否是最新 如果不是 就再次请求
+         if (this.data.lastValue !== this.data.inputValue) {
+           console.log('123')
+           this.getRecommend()
+         } 
       });
-
-      //判断一下inputValue的值是否是最新 如果不是 就再次请求
-      if(this.data.lastValue!==this.data.inputValue){
-        this.getRecommend()
-      } 
+  
+      
     }
   
   },
