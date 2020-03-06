@@ -1,2 +1,67 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="container">
+  <!-- 收货地址 -->
+  <view class="address" wx:if="{{true}}">
+    <view class="address-info">
+      <view>收货人：小仙女</view>
+      <view class="tel">13535337057</view>
+    </view>
+    <view class="address-detail">收货地址：广东省广州市天河区</view>
+    <image model="aspectFill"src="../../images/cart_border@2x.png"></image>
+  </view>
+  <!-- 获取收货地址 -->
+   <view class="address" wx:if="{{false}}">
+    <view class="address-info">
+        <view>获取收货地址</view>
+        <view class="tel"></view>
+    </view>
+    <image model="aspectFill"src="../../images/cart_border@2x.png"></image>
+  </view>
+  <!-- 商品头部 -->
+  <view class="goods-title">
+    <view class="iconfont icon-dianpu"></view>
+      优购生活馆
+  </view>
+  <!-- 商品列表 -->
+  <view class="goods-list">
+    <view class="goods-item" wx:for="{{6}}">
+      <!-- 是否选中 -->
+      <icon type="success" color="red"></icon>
+      <image mode="aspectFill" src="https://m.360buyimg.com/mobilecms/s150x150_jfs/t1/86622/31/13300/272258/5e565c00Efbafb835/cc3b7d8ddaf1a475.jpg!q70.jpg.dpg"></image>
+      <!-- 商品信息右侧 -->
+      <view class="goods-right">
+        <view class="goods-right-title">秋装啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦          啦啦啦</view>
+        <view class="goods-right-info">
+           <view class="goods-price">
+              <text>￥</text>279.00
+           </view>
+          <!-- 商品的数量 -->
+          <view class="goods-number">
+            <!-- 点击数量减 -->
+            <view class="calc-button" data-index="{{index}}"
+            data-number="{{-1}}">-</view>
+             <input value="{{1}}"></input>
+             <!-- 点击数量加 -->
+             <view class="calc-button" data-index="{{index}}"
+             data-number="{{1}}">+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+   <!--全选和总价格-->
+  <view class="checkout">
+    <view class="allselect">
+      <icon type="success" color="red"></icon>
+      全选
+    </view>
+    <view class="allprice">
+      <view class="allprice-top">合计：
+      <text>
+          <text>￥</text>14110.00
+      </text>
+      </view>
+      <view class="allprice-bottom">包含运费</view>
+    </view>
+    <view class="checkout-btn">结算</view>
+  </view>
+</view>
