@@ -1,15 +1,15 @@
 <view class="container">
   <!-- 收货地址 -->
-  <view class="address" wx:if="{{true}}">
+  <view class="address" wx:if="{{address.name}}">
     <view class="address-info">
-      <view>收货人：小仙女</view>
-      <view class="tel">13535337057</view>
+      <view>收货人：{{address.name}}</view>
+      <view class="tel">{{address.tel}}</view>
     </view>
-    <view class="address-detail">收货地址：广东省广州市天河区</view>
+    <view class="address-detail">收货地址：{{address.detail}}</view>
     <image model="aspectFill"src="../../images/cart_border@2x.png"></image>
   </view>
   <!-- 获取收货地址 -->
-   <view class="address" wx:if="{{false}}">
+   <view class="address" wx:if="{{!address.name}}" bindtap="GetAddress">
     <view class="address-info">
         <view>获取收货地址</view>
         <view class="tel"></view>
@@ -23,7 +23,7 @@
   </view>
   <!-- 商品列表 -->
   <view class="goods-list">
-    <view class="goods-item" wx:for="{{6}}">
+    <view class="goods-item" wx:for="{{6}}" wx:key="index">
       <!-- 是否选中 -->
       <icon type="success" color="red"></icon>
       <image mode="aspectFill" src="https://m.360buyimg.com/mobilecms/s150x150_jfs/t1/86622/31/13300/272258/5e565c00Efbafb835/cc3b7d8ddaf1a475.jpg!q70.jpg.dpg"></image>
