@@ -13,7 +13,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //把地址从本地拿出来
+    this.setData({
+      address: wx.getStorageSync("address") || {}
+    })
   },
 
   // 获取收货地址
@@ -30,7 +33,10 @@ Page({
             // 详细地址
             detail:res.provinceName + res.cityName + res.countyName + res.detailInfo
           }
-        })
+        });
+
+        // 把收货地址保存到本地
+        wx.setStorageSync("address",this.data.address)
       }
     })
   }
