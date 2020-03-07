@@ -8,7 +8,9 @@ Page({
     // 收货地址
     address: {},
     //本地商品列表
-    goods:[]
+    goods:[],
+    // 总价格
+    allPrice:0
   },
 
   /**
@@ -18,14 +20,18 @@ Page({
     //把地址从本地拿出来
     this.setData({
       address: wx.getStorageSync("address") || {}
-    })
+    });
+   
   },
 
   onShow(){
     // data和onload只会加载一次 所以需要在每次打开页面都获取一次本地的数据
     this.setData({
       goods: wx.getStorageSync("goods") || []
-    })
+    });
+    // 计算总价格
+    this.handeleAllPrice()
+
   },
 
   // 获取收货地址
@@ -48,5 +54,20 @@ Page({
         wx.setStorageSync("address",this.data.address)
       }
     })
-  }
+  },
+
+  // 计算总价格
+  handeleAllPrice(){
+    let price=0;
+    //遍历goods数组中的每一项商品价格
+    this.data.goods.forEach(v=>{
+      price+=v.goods_price*v.number;
+    });
+    
+    //修改总价格
+    this.setData({
+      allPrice:price
+    })
+  },
+
 })

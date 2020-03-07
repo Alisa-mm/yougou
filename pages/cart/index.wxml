@@ -37,12 +37,16 @@
           <!-- 商品的数量 -->
           <view class="goods-number">
             <!-- 点击数量减 -->
-            <view class="calc-button" data-index="{{index}}"
-            data-number="{{-1}}">-</view>
+            <view class="calc-button" 
+            data-index="{{index}}"
+            data-number="{{-1}}"
+            bindtap="handleCalc">-</view>
              <input value="{{item.number}}"></input>
              <!-- 点击数量加 -->
-             <view class="calc-button" data-index="{{index}}"
-             data-number="{{1}}">+</view>
+             <view class="calc-button" 
+             data-index="{{index}}"
+             data-number="{{1}}"
+             bindtap="handleCalc">+</view>
           </view>
         </view>
       </view>
@@ -57,7 +61,7 @@
     <view class="allprice">
       <view class="allprice-top">合计：
       <text>
-          <text>￥</text>14110.00
+          <text>￥</text>{{allPrice}}
       </text>
       </view>
       <view class="allprice-bottom">包含运费</view>
