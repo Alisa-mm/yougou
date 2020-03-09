@@ -61,7 +61,11 @@ Page({
     let price=0;
     //遍历goods数组中的每一项商品价格
     this.data.goods.forEach(v=>{
-      price+=v.goods_price*v.number;
+      // 如果商品是选中状态 才计算价格
+      if(v.select){
+        price += v.goods_price * v.number;
+      }
+      
     });
     
     //修改总价格
@@ -143,5 +147,21 @@ Page({
     });
     // 计算总价格
     this.handeleAllPrice();
-  } 
+  },
+  // 点击选中的图标
+  handleSelect(e){
+    // 当前选中商品的索引
+    console.log(e)
+    const{index}=e.currentTarget.dataset;
+    //当前商品的选中状态
+    const{select}=this.data.goods[index];
+    // 取反修改当前商品的选中状态
+    this.data.goods[index].select=!select
+    // 重新修改data中goods的值
+    this.setData({
+      goods:this.data.goods
+    })
+    // 计算总价格
+    this.handeleAllPrice();
+  }
 })

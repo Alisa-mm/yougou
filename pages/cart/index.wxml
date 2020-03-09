@@ -25,7 +25,8 @@
   <view class="goods-list">
     <view class="goods-item" wx:for="{{goods}}" wx:key="index">
       <!-- 是否选中 -->
-      <icon type="success" color="red"></icon>
+      <icon type="success" color="{{item.select ? 'red' :'gray'}}"
+      bindtap="handleSelect" data-index="{{index}}"></icon>
       <image mode="aspectFill" src="{{item.goods_small_logo}}"></image>
       <!-- 商品信息右侧 -->
       <view class="goods-right">

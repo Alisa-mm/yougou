@@ -89,7 +89,8 @@ Page({
         goods_name: this.data.detail.goods_name,
         goods_price: this.data.detail.goods_price,
         goods_small_logo: this.data.detail.goods_small_logo,
-        number: 1
+        number: 1, //默认数量为1；
+        select:true //默认是选中状态
       });
       wx.showToast({
         title: '加入购物车',
