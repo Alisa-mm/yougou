@@ -41,7 +41,9 @@
             data-index="{{index}}"
             data-number="{{-1}}"
             bindtap="handleCalc">-</view>
-             <input value="{{item.number}}"></input>
+            <input value="{{item.number}}"
+            type="number" bindblur="handleBlur"
+            data-index="{{index}}"></input>
              <!-- 点击数量加 -->
              <view class="calc-button" 
              data-index="{{index}}"

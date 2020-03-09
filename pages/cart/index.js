@@ -119,5 +119,27 @@ Page({
     };
     // 计算总价格
     this.handeleAllPrice()
-  }
+  },
+
+  //输入框失去焦点时触发
+  handleBlur(e){
+    // 如果用户输入负数的话,用户失焦的时候，让值变为原来的值
+    console.log(e)
+    // 先获取原来的的input输入框的值
+    const {index}=e.currentTarget.dataset
+
+    let{value}=e.detail;
+    value = Math.floor(Number(value))
+    if(value<1){
+      console.log(value)
+      // 如果小于1 就让它等1
+       value=1
+    }
+    //修改商品数量
+    this.data.goods[index].number=value;
+    // 重新修改data的goods的值
+    this.setData({
+      goods: this.data.goods
+    });
+  } 
 })
