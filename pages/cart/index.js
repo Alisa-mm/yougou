@@ -67,7 +67,57 @@ Page({
     //修改总价格
     this.setData({
       allPrice:price
-    })
+    });
+    // 修改本地的数据, 每一次购物车商品数量的变化 或者全选不全选，都会计算总价格，所以要在这里保存goods 这样的话，不管怎么操作 本地都会变化，刷新的时候就是正确的
+    wx.setStorageSync("goods", this.data.goods)
   },
 
+   // 点击加号商品数量加1，点击减号商品数量减1
+  handleCalc(e){
+    // index是点击的索引值, number可能是1，也可能是-1
+    const { index, number } = e.currentTarget.dataset;
+    // console.log(index);
+    // console.log(number)
+    //点击的时候给当前商品加1或者减1,
+    // this.data.goods[index].number += number;
+
+    // 上面的计算，商品会加减 但是页面不会刷新需要重新修改goods的值
+    // this.setData({
+    //   goods: this.data.goods
+    // });
+    this.data.goods[index].number += number;
+    // console.log(this.data.goods[index].number);
+    if (this.data.goods[index].number>0){
+    // 这个数量应该计算之后，再进行if判断，如果判断之后再计算的话，当this.data.goods[index].number=1时，加上number(-1)，就会变为0，这时候要再减一次才会进入elseif判断，而且如果再点加号的话，就加不上
+      // this.data.goods[index].number += number;
+      console.log(this.data.goods[index].number)
+      // 上面的计算，商品会加减 但是页面不会刷新需要重新修改goods的值
+      this.setData({
+        goods: this.data.goods
+      });
+
+     } else if (this.data.goods[index].number===0){
+      //如果进入到elseif判断里面,这个时候number为0，点击取消之后，又会执行if上面的this.data.goods[index].number += number;这个代码，这时候number就等于-1了，这个时候，如果点击购物车内别的商品加减 ，上面的商品数量也会变化，所以执行这个的时候要加上1，就不会有这样的错误
+      this.data.goods[index].number=this.data.goods[index].number + 1
+        wx.showModal({
+          title: '提示',
+          content: '是否删除商品',
+          success:(res)=> {
+            if (res.confirm) {
+              //用户点击确定
+              this.data.goods.splice(index, 1);
+              // 计算总价格
+              this.handeleAllPrice()
+            
+                this.setData({
+                  goods: this.data.goods
+                });
+            }
+          }
+        });
+        
+    };
+    // 计算总价格
+    this.handeleAllPrice()
+  }
 })
