@@ -141,5 +141,7 @@ Page({
     this.setData({
       goods: this.data.goods
     });
+    // 计算总价格
+    this.handeleAllPrice();
   } 
 })
