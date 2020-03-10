@@ -193,5 +193,22 @@ Page({
     this.setData({
       allSelect: currentSelect
     });
+  },
+
+  // 点击全选按钮的处理
+  handleAllselect(){
+    const{allSelect}=this.data;
+    // 循环给每个商品修改状态
+    this.data.goods.forEach(v=>{
+      v.select=!allSelect
+    });
+    // 修改data的值
+    this.setData({
+      goods:this.data.goods,
+      // 保存全选状态
+      allSelect: !allSelect
+    });
+    // 计算总价格
+    this.handeleAllPrice()
   }
 })
