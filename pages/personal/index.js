@@ -26,7 +26,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      // 自定义tabBar的配置  要在每一个tabBar页面加上这个判断 selected选中状态
+      if (typeof this.getTabBar === 'function' &&
+        this.getTabBar()) {
+        this.getTabBar().setData({
+          selected: 3
+        })
+      }
   },
 
   /**

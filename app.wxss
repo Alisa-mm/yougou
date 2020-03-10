@@ -1,2 +1,6 @@
 @import "common/style.wxss";
-@import "common/font.wxss"
+@import "common/font.wxss";
+/* 每个tabBar页面的下边距 */
+.tab-page{
+    padding-bottom: 48px;
+} 

@@ -51,6 +51,16 @@ Page({
     })
   })
  },
+
+  onShow() {
+    // 自定义tabBar的配置  要在每一个tabBar页面加上这个判断 selected选中状态
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0
+      })
+    }
+  },
  //回到顶部事件
  handleToTop(){
    wx.pageScrollTo({

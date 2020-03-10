@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container tab-page">
   <!-- 头部搜索栏 点击这个会跳转到搜索页面 -->
     <!-- 引用搜索组件 -->
     <search/>

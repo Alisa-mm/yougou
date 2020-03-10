@@ -72,7 +72,7 @@
   border-radius: 45rpx;
   position: fixed;
   right: 20rpx;
-  bottom: 50rpx;
+  bottom: 48px;
 }
 .toTop .arrow{
   width:12px;
