@@ -10,7 +10,9 @@ Page({
     //本地商品列表
     goods:[],
     // 总价格
-    allPrice:0
+    allPrice:0,
+    // 全选
+    allSelect: true
   },
 
   /**
@@ -30,7 +32,9 @@ Page({
       goods: wx.getStorageSync("goods") || []
     });
     // 计算总价格
-    this.handeleAllPrice()
+    this.handeleAllPrice();
+    // 判断全选的状态
+    this.handleSelectAll();
 
   },
 
@@ -163,5 +167,31 @@ Page({
     })
     // 计算总价格
     this.handeleAllPrice();
+    // 判断全选状态
+    this.handleSelectAll()
+  },
+
+  // 判断全选状态，封装为一个方法 方便调用
+  handleSelectAll(){
+    // 先假设所有的商品都是选中状态
+    let currentSelect = true;
+    // 遍历商品列表goods，只要有一项没有选中，全选就是灰色
+    this.data.goods.forEach(v=>{
+      // 如果有一项为false 就不用再判断了
+      if(currentSelect===false){
+        return;
+      }
+      // console.log(v.select)
+      if(v.select===false){
+        // 把全选的状态改为false
+        // let currentSelect =false
+        // 不能写let 如果写let 它只在当前作用域里面起作用 所以currentSelect是一直为true的
+        currentSelect = false
+      }
+    })
+    // 保存全选状态
+    this.setData({
+      allSelect: currentSelect
+    });
   }
 })
